@@ -1,4 +1,5 @@
 import model.Elf
+import model.Stack
 import java.io.File
 
 /**
@@ -24,4 +25,28 @@ fun readElvesWithCalories(fileName: String): List<Elf> {
     elves.add(Elf(i, calories))
 
     return elves
+}
+
+fun readStacksOfCreates(fileName: String): Map<Int, Stack> {
+    val lines: List<String> = readFileByLine(fileName)
+    val lineSize: Int = lines[0].length
+    val stacksById: MutableMap<Int, Stack> = mutableMapOf()
+    for (line in lines) {
+        var id: Int = 0
+        if (line.isEmpty()) {
+            break
+        }
+        for (i in 1..lineSize step 4) {
+            val crate = line[i]
+            id += 1
+            if (crate == ' ' || crate in '0'..'9') {
+                continue
+            }
+            stacksById.putIfAbsent(id, Stack(id, mutableListOf()))
+            val stack = stacksById[id]
+            stack?.crates?.add(crate.toString())
+        }
+    }
+
+    return stacksById
 }

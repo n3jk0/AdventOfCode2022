@@ -14,7 +14,6 @@ fun main() {
     println(lines.map { line -> isFullyOverlap(line) }.count { it })
     // Second star
     println(lines.map { line -> isPartlyOverlap(line) }.count { it })
-
 }
 
 fun isFullyOverlap(line: String): Boolean {
