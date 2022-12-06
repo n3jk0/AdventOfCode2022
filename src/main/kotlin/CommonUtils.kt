@@ -8,6 +8,8 @@ import java.io.File
  */
 fun readFileByLine(fileName: String): List<String> = File(fileName).readLines()
 
+fun readFirstLine(fileName: String): String = File(fileName).readLines().first()
+
 fun readElvesWithCalories(fileName: String): List<Elf> {
     val elves: MutableList<Elf> = mutableListOf()
     val lines: List<String> = readFileByLine(fileName)

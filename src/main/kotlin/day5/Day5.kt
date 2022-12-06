@@ -9,6 +9,9 @@ import readStacksOfCreates
  * @author Nejc Kozlevčar
  */
 
+/**
+ * Task: https://adventofcode.com/2022/day/5
+ */
 fun main() {
     var stacks = readStacksOfCreates("src/main/kotlin/day5/input.txt")
     val moves = readFileByLine("src/main/kotlin/day5/input.txt").filter { s -> s.startsWith("move") }

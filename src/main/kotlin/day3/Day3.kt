@@ -7,6 +7,9 @@ import readFileByLine
  * @author Nejc Kozlevčar
  */
 
+/**
+ * Task: https://adventofcode.com/2022/day/3
+ */
 fun main() {
     val lines = readFileByLine("src/main/kotlin/day3/input.txt")
     // First star

@@ -9,6 +9,9 @@ import readElvesWithCalories
  * @author Nejc Kozlevčar
  */
 
+/**
+ * Task: https://adventofcode.com/2022/day/1
+ */
 fun main() {
     val elves: List<Elf> = readElvesWithCalories("day1/input.txt")
 //    1. task

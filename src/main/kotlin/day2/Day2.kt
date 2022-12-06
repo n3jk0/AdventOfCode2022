@@ -8,6 +8,9 @@ import readFileByLine
  */
 val shapeScore: Map<String, Int> = mapOf("A" to 1, "B" to 2, "C" to 3, "X" to 1, "Y" to 2, "Z" to 3)
 
+/**
+ * Task: https://adventofcode.com/2022/day/2
+ */
 fun main() {
     val lines = readFileByLine("day2/input.txt")
     var score: Int = 0
