@@ -71,7 +71,7 @@ fun scenicScore(list: List<Int>, max:Int): Int {
     for(i in list) {
         res.add(i)
         if (i >= max) {
-            return res.count()
+            break
         }
     }
     return res.count()
