@@ -12,7 +12,7 @@ import kotlin.math.abs
 fun main() {
 //    val lines = readFileByLine("src/main/kotlin/day9/smallInput.txt")
     val lines = readFileByLine("src/main/kotlin/day9/input.txt")
-    
+
     val smallRope: List<Point> = listOf(Point(0, 0), Point(0, 0))
     val smallTrace: MutableSet<Point> = mutableSetOf()
 
@@ -49,26 +49,22 @@ fun movePoint(point: Point, direction: String) {
 }
 
 fun moveTailToHead(headPoint: Point, tailPoint: Point) {
-    if (abs(headPoint.x - tailPoint.x) <= 1 && abs(headPoint.y - tailPoint.y) <= 1) {
+    val differenceX = headPoint.x - tailPoint.x
+    val differenceY = headPoint.y - tailPoint.y
+    if (abs(differenceX) <= 1 && abs(differenceY) <= 1) {
         // Correct position
         return
     }
 
-    if (headPoint.x == tailPoint.x) {
-        // Move up or down
-        if (headPoint.y - tailPoint.y > 0) movePoint(tailPoint, "U") else movePoint(tailPoint, "D")
-    } else if (headPoint.y == tailPoint.y) {
-        // Move Left or Right
-        if (headPoint.x - tailPoint.x > 0) movePoint(tailPoint, "R") else movePoint(tailPoint, "L")
-    } else {
-        // Diagonals
-        if (abs(headPoint.x - tailPoint.x) > 1) {
-            if (headPoint.y - tailPoint.y > 0) movePoint(tailPoint, "U") else movePoint(tailPoint, "D")
-            if (headPoint.x - tailPoint.x > 0) movePoint(tailPoint, "R") else movePoint(tailPoint, "L")
+    if (differenceY > 0) {
+        movePoint(tailPoint, "U")
+    } else if (differenceY < 0) {
+        movePoint(tailPoint, "D")
+    }
 
-        } else if (abs(headPoint.y - tailPoint.y) > 1) {
-            if (headPoint.x - tailPoint.x > 0) movePoint(tailPoint, "R") else movePoint(tailPoint, "L")
-            if (headPoint.y - tailPoint.y > 0) movePoint(tailPoint, "U") else movePoint(tailPoint, "D")
-        }
+    if (differenceX > 0) {
+        movePoint(tailPoint, "R")
+    } else if (differenceX < 0) {
+        movePoint(tailPoint, "L")
     }
 }
